@@ -1,0 +1,26 @@
+[Unit]
+Description=CMPCO's distributed currency daemon
+After=network.target
+
+[Service]
+User=cmpco
+Group=cmpco
+
+Type=forking
+PIDFile=/var/lib/cmpcod/cmpcod.pid
+
+ExecStart=/usr/bin/cmpcod -daemon -pid=/var/lib/cmpcod/cmpcod.pid \
+          -conf=/etc/cmpco/cmpco.conf -datadir=/var/lib/cmpcod
+
+ExecStop=-/usr/bin/cmpco-cli -conf=/etc/cmpco/cmpco.conf \
+         -datadir=/var/lib/cmpcod stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,26 @@
+# /etc/conf.d/cmpcod: config file for /etc/init.d/cmpcod
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/cmpco/cmpco.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/cmpcod"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/cmpcod.pid"
+
+# Where to write cmpcod data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/cmpcod"
+
+# User and group to own cmpcod process
+#BITCOIND_USER="cmpco"
+#BITCOIND_GROUP="cmpco"
+
+# Path to cmpcod executable
+#BITCOIND_BIN="/usr/bin/cmpcod"
+
+# Nice value to run cmpcod under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""
